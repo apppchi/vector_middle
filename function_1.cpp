@@ -11,8 +11,9 @@ vector <char> itc_strtlist(string str){
 string itc_join(vector <char> lst, string sep){
     string str;
     for(int i = 0; i < lst.size(); i++){
-        char c = lst[i];
-        str = str + c + sep;
+        str+=lst[i];
+        if(i < lst.size() - 1)
+            str+=sep;
     }
     return str;
 }
