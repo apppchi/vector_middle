@@ -50,13 +50,16 @@ int itc_find_str(string str1, string str2){
 }
 
 string itc_rmstrchar(string str, string less){
-    int pos = itc_find_str(str, less);
     string it;
-    for(int i = 0; i < pos; i++){
-        it = it + str[i];
-    }
-    for(int i = pos + less.size(); i < str.size(); i++){
-        it = it + str[i];
+    int l = 0;
+    for(int i = 0; i < str.size(); i++){
+        for(int f = 0; f < less.size(); f++){
+            if(str[i] == less[f])
+                l = 1;
+        }
+        if (l == 0)
+            it+=str[i];
+        l = 0;
     }
     return it;
 }
